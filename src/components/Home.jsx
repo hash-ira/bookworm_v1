@@ -4,16 +4,15 @@ import { useNavigate } from 'react-router-dom';
 import SearchBar from './SearchBar';
 
 
-export default function Home() {
+export default function Home({inputValue, setInputValue}) {
   const [srch, setSearch] = React.useState(false);
-  const [inputValue, setInputValue] = React.useState('');
   const navigate = useNavigate();
+  
 
   const handleButtonClick = () => {
     setSearch(!srch);
-
-    // Navigate to '/search' only if the input is visible and has some value
-    if (srch && inputValue.trim() !== '') {
+    let tempText = inputValue;
+    if (srch && tempText.trim() !== '') {
       navigate('/search');
     }
   };

@@ -4,8 +4,8 @@ import BookCard from "./MUI components/BookCard";
 import Loader from "./Loader";
 
 
-export default function Search() {
-  const [input, setInput] = useState("");
+export default function Search({inputValue , setInputValue}) {
+
   const [loading , setLoading] = useState(true);
   const [arrData, setArrData] = useState([]);
   const API_KEY = import.meta.env.VITE_API_KEY
@@ -16,7 +16,7 @@ export default function Search() {
 
     try {
       const res = await fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${input}&maxResults=40&key=${API_KEY}`
+        `https://www.googleapis.com/books/v1/volumes?q=${inputValue}&maxResults=40&key=${API_KEY}`
       );
 
       const data = await res.json();
@@ -31,8 +31,12 @@ export default function Search() {
   console.log(loading);
 
   useEffect(() => {
-    console.log("use effect")
-  }, [arrData]);
+    setLoading(true);
+    fetch( `https://www.googleapis.com/books/v1/volumes?q=${inputValue}&maxResults=40&key=${API_KEY}`)
+            .then(res =>res.json())
+            .then(data => setArrData(data.items))
+            .finally(() => setLoading(false));
+  }, []);
 
   console.log(arrData);
 
@@ -47,8 +51,8 @@ export default function Search() {
             <input
               className="w-4/6  h-full pl-5 border-y-2 shadow-sm"
               placeholder="Book/Author/Keyword..."
-              value={input}
-              onInput={(e) => setInput(e.target.value)}
+              value={inputValue}
+              onInput={(e) => setInputValue(e.target.value)}
               >
               
               </input>
@@ -67,6 +71,7 @@ export default function Search() {
           <div className="h-full my-4 mx-2 flex flex-wrap justify-center gap-5 lg:mx-12">
             {arrData?.map( (item) => (
               <BookCard
+                key={item.id}
                 img={item.volumeInfo.imageLinks?.thumbnail || 'https://png.pngtree.com/png-vector/20221125/ourmid/pngtree-icon-of-unavailable-image-illustration-in-vector-with-flat-design-vector-png-image_40969994.jpg'}
                 title={item.volumeInfo.title || 'Not Found'}
                 authors={item.volumeInfo.authors || 'Anonymous'}

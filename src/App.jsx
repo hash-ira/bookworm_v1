@@ -8,13 +8,14 @@ import Navbar from './components/Navbar';
 
 function App() {
 
+  const [inputValue, setInputValue] = React.useState('');
   return (
 
     <div className="px-[1.5rem]">
       <Navbar/>
       <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/search" element={<Search/>}/>
+        <Route path="/" element={<Home inputValue={inputValue} setInputValue={setInputValue}/>}/>
+        <Route path="/search" element={<Search inputValue={inputValue} setInputValue={setInputValue}/>}/>
       </Routes>
     </div>
 
