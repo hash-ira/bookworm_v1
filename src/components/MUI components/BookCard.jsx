@@ -13,7 +13,7 @@ function BookCard(props) {
   }
 
   return (
-    <Card sx={{ width: 224, height: '100%', display: 'flex', flexDirection: 'column' }} className="cursor-pointer hover:shadow-lg animate-slideup" onClick={handleClick}>
+    <Card sx={{ width: 224, height: '100%', display: 'flex', flexDirection: 'column' }} className="cursor-pointer hover:shadow-xl animate-slideup" onClick={handleClick}>
       <CardMedia
         component="img"
         sx={{ objectFit: 'contain', maxHeight: 200 }}
