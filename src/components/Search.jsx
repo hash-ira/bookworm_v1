@@ -4,10 +4,7 @@ import BookCard from "./MUI components/BookCard";
 import Loader from "./Loader";
 
 
-export default function Search({inputValue , setInputValue}) {
-
-  const [loading , setLoading] = useState(true);
-  const [arrData, setArrData] = useState([]);
+export default function Search({inputValue , setInputValue , loading , setLoading , arrData , setArrData}) {
   const API_KEY = import.meta.env.VITE_API_KEY
 
   async function onSearchBook(event) {

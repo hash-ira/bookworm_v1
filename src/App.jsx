@@ -10,13 +10,26 @@ import SearchDetails from './components/SearchDetails';
 function App() {
 
   const [inputValue, setInputValue] = React.useState('');
+  const [loading , setLoading] = React.useState(true);
+  const [arrData, setArrData] = React.useState([]);
   return (
 
     <div className="px-[1.5rem]">
       <Navbar/>
       <Routes>
-        <Route path="/" element={<Home inputValue={inputValue} setInputValue={setInputValue}/>}/>
-        <Route path="/search" element={<Search inputValue={inputValue} setInputValue={setInputValue}/>}/>
+        <Route path="/" element={<Home 
+                                    inputValue={inputValue}
+                                    setInputValue={setInputValue}
+                                    />}/>
+
+        <Route path="/search" element={<Search 
+                                    inputValue={inputValue} 
+                                    setInputValue={setInputValue}
+                                    loading={loading}
+                                    setLoading={setLoading}
+                                    arrData={arrData}
+                                    setArrData={setArrData}/>}/>
+
         <Route path="/search/:id" element={<SearchDetails />} />
       </Routes>
     </div>
