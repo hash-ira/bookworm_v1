@@ -12,6 +12,8 @@ function App() {
   const [inputValue, setInputValue] = React.useState('');
   const [loading , setLoading] = React.useState(true);
   const [arrData, setArrData] = React.useState([]);
+  const [itemIndex , setItemIndex] = React.useState();
+
   return (
 
     <div className="px-[1.5rem]">
@@ -28,9 +30,12 @@ function App() {
                                     loading={loading}
                                     setLoading={setLoading}
                                     arrData={arrData}
-                                    setArrData={setArrData}/>}/>
+                                    setArrData={setArrData}
+                                    itemIndex = {itemIndex}
+                                    setItemIndex = {setItemIndex}/>}/>
 
-        <Route path="/search/:id" element={<SearchDetails />} />
+        <Route path="/search/:id" element={<SearchDetails
+                                    arrData={arrData}/>} />
       </Routes>
     </div>
 

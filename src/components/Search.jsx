@@ -74,7 +74,6 @@ export default function Search({inputValue , setInputValue , loading , setLoadin
                 authors={item.volumeInfo.authors || 'Anonymous'}
                 id={item.id}
               />
-              // <p className="text-black">hii there</p>
             ))}
           </div> 
         }
