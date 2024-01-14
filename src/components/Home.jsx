@@ -19,7 +19,7 @@ export default function Home({inputValue, setInputValue}) {
 
   return (
     <>
-      <main className="flex flex-col lg:flex-row-reverse my-12">
+      <main className="flex flex-col lg:flex-row-reverse my-12 items-center">
         <div className="w-full lg:w-1/2">
           <img className="w-full h-auto lg:rounded-lg" src="/assets/main_image.jpg" alt="Bookshelf" />
         </div>
@@ -27,7 +27,7 @@ export default function Home({inputValue, setInputValue}) {
           <h1 className="text-4xl lg:text-6xl font-bold font-serif mb-4 lg:mb-6">
             Reading is dreaming with open eyes.
           </h1>
-          <p className="font-sans text-base lg:text-md font-semibold my-6 lg:my-10 text-gray-800">
+          <p className="font-sans text-base lg:text-md font-semibold my-6 lg:my-10 text-gray-800 text-center md:text-left">
             Dive into a world of literary exploration, where you can easily search, explore, and find
             your next great read. Whether you're a seasoned bookworm or just beginning your reading
             journey, let us guide you through a curated collection of novels, non-fiction, and

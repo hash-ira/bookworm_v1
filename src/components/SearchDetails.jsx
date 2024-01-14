@@ -46,7 +46,7 @@ function SearchDetails({arrData}) {
     return (
       <div className="flex flex-col items-center justify-center h-[80vh]">
         <p className="text-3xl sm:text-4xl md:text-5xl font-bold p-4 rounded-lg bg-red-500 text-white">
-          Error: {error}
+          {error}
         </p>
         <div className="mt-4">
           <img
