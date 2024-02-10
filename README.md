@@ -4,5 +4,5 @@ A ReactJs based web application that lets users search Books based on author, ke
 The UI is built using TailwindCSS and Material UI.
 
 ## Demo
-[Link](https://bookwormv1.netlify.app/)
+Currently unavailable due to googleAPI issue.(resolving it!)
 
